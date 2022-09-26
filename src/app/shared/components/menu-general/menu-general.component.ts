@@ -1,3 +1,5 @@
+import { Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
@@ -10,14 +12,19 @@ export class MenuGeneralComponent implements OnInit {
   @ViewChild('searchZone', { static: false })
   searchZone: ElementRef;
 
+  @Output()  //element sortant de type event
+  launchResearch: EventEmitter<string> = new EventEmitter<string>()
+
   constructor() {
-    this.searchZone = new ElementRef(undefined);
   }
 
   ngOnInit(): void { }
 
   search(): void {
-    console.log(this.searchZone.nativeElement.value);
+    //console.log(this.searchZone.nativeElement.value);
+    const researchedValue = (this.searchZone.nativeElement.value);
+
+    this.launchResearch.emit(researchedValue);
   }
 
 }

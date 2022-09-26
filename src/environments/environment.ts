@@ -4,11 +4,6 @@
 
 export const environment = {
   production: false,
-  /*   apis: {
-      wookie: {
-        url: 'http://localhost:8080'
-      }
-    } */
 };
 
 /*

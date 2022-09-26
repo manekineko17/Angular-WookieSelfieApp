@@ -1,8 +1,12 @@
-<app-menu-general></app-menu-general>
+<!-- launchReseach est l'événement dans le composant enfant
+  researchSelfies est la fonction à exécuter
+  $event pour récupérer la string -->
+<app-menu-general (launchResearch)="researchSelfies($event)"></app-menu-general>
 
 <h1 class="text-center m-3">{{ title }}</h1>
 <h4 class="text-center mt-3 mb-5">{{ subTitle }}</h4>
 
 <main class="container">
-  <app-selfie-list></app-selfie-list>
+  <!-- [filtre] est un input/propriété de app-selfie-list -->
+  <app-selfie-list [filtre]="valueToResearch"></app-selfie-list>
 </main>
