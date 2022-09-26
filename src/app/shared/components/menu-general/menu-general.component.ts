@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-menu-general',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuGeneralComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('searchZone', { static: false })
+  searchZone: ElementRef;
 
-  ngOnInit(): void {
+  constructor() {
+    this.searchZone = new ElementRef(undefined);
+  }
+
+  ngOnInit(): void { }
+
+  search(): void {
+    console.log(this.searchZone.nativeElement.value);
   }
 
 }

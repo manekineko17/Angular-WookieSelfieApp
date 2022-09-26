@@ -13,4 +13,3 @@ export class Selfie {
         this.title = "Selfie title";
     }
 }
-//test
