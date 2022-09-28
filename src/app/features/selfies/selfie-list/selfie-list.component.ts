@@ -1,19 +1,25 @@
-import { Input } from '@angular/core';
+import { Input, OnDestroy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Selfie } from 'src/app/models/selfie';
+import { LoggerService } from 'src/app/shared/services/logger/logger.service';
+import { SelfieService } from 'src/app/shared/services/selfies/selfie.service';
 
 @Component({
   selector: 'app-selfie-list',
   templateUrl: './selfie-list.component.html',
   styleUrls: ['./selfie-list.component.css']
 })
-export class SelfieListComponent implements OnInit {
+export class SelfieListComponent implements OnInit, OnDestroy {
+
+  theSubscriptions: Subscription[] = [];
+
   /*instancing a new wookie: the line under comes from JS syntax:
 * we wait for the same attributes for each wookie : */
   selfies: Selfie[] = [
-    { image: 'https://images.unsplash.com/photo-1627962996373-f5bf00bc7a45?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80', title: "selfie title", wookie: { name: 'Chewie 1', selfies: [] } },
-    { image: 'https://images.unsplash.com/photo-1627962996373-f5bf00bc7a45?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80', title: "selfie title", wookie: { name: 'Chewie 2', selfies: [] } },
-    { image: 'https://images.unsplash.com/photo-1627962996373-f5bf00bc7a45?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80', title: "selfie title", wookie: { name: 'Chewie 3', selfies: [] } }
+    { image: 'https://cdn.pixabay.com/photo/2019/09/14/00/23/chewbacca-4475120_1280.jpg', title: "selfie title", wookie: { name: 'Chewie 1', selfies: [] } },
+    { image: 'https://cdn.pixabay.com/photo/2019/09/14/00/23/chewbacca-4475120_1280.jpg', title: "selfie title", wookie: { name: 'Chewie 2', selfies: [] } },
+    { image: 'https://cdn.pixabay.com/photo/2019/09/14/00/23/chewbacca-4475120_1280.jpg', title: "selfie title", wookie: { name: 'Chewie 3', selfies: [] } }
   ];
 
   //déclation d'une propriété input
@@ -26,8 +32,15 @@ export class SelfieListComponent implements OnInit {
     console.log('SelfieListComponennt', value);
   };
 
-  constructor() { }
+  constructor(private loggerService: LoggerService, private selfieService: SelfieService) { }
+
+  ngOnDestroy(): void {
+    this.theSubscriptions.forEach(item => item.unsubscribe());
+  }
 
   ngOnInit(): void {
+    //this.selfies = this.selfieService.getAll();
+    const subscriptionsInProgress = this.selfieService.getAllAsObservable().subscribe(aTable => this.selfies = aTable);
+    this.theSubscriptions.push(subscriptionsInProgress);
   }
 }

@@ -4,6 +4,11 @@
 
 export const environment = {
   production: false,
+  apis: {
+    selfies: {
+      url: "https://65226123-7c28-4873-b9aa-3b350e4a5370.mock.pstmn.io/selfie"
+    }
+  }
 };
 
 /*

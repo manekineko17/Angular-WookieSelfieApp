@@ -10,7 +10,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class MenuGeneralComponent implements OnInit {
 
   @ViewChild('searchZone', { static: false })
-  searchZone: ElementRef;
+  searchZone !: ElementRef;
 
   @Output()  //element sortant de type event
   launchResearch: EventEmitter<string> = new EventEmitter<string>()
