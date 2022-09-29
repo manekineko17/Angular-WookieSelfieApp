@@ -12,6 +12,8 @@ import { SelfieService } from 'src/app/shared/services/selfies/selfie.service';
 })
 export class SelfieListComponent implements OnInit, OnDestroy {
 
+  public selfieToAdd!: Selfie; //null, donc pas d'affichage. Mais au click le bouton d'affichera
+
   theSubscriptions: Subscription[] = [];
 
   /*instancing a new wookie: the line under comes from JS syntax:
@@ -43,4 +45,13 @@ export class SelfieListComponent implements OnInit, OnDestroy {
     const subscriptionsInProgress = this.selfieService.getAllAsObservable().subscribe(aTable => this.selfies = aTable);
     this.theSubscriptions.push(subscriptionsInProgress);
   }
+
+  askBroadcastToAddSelfie(): void {
+    this.selfieToAdd = new Selfie;
+  }
+
+  hideZoneInputSelfie(): void {
+    this.selfieToAdd != null;
+  }
 }
+

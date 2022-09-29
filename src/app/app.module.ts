@@ -5,13 +5,15 @@ import { MenuGeneralComponent } from './shared/components/menu-general/menu-gene
 import { SelfieListComponent } from './features/selfies/selfie-list/selfie-list.component';
 import { ASelfieComponent } from './features/selfies/a-selfie/a-selfie.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddSelfieComponent } from './features/selfies/add-selfie/add-selfie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuGeneralComponent,
     SelfieListComponent,
-    ASelfieComponent
+    ASelfieComponent,
+    AddSelfieComponent
   ],
   imports: [
     BrowserModule,

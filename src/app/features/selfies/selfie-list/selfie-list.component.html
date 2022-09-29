@@ -1,1 +1,9 @@
+<div class="row">
+    <div class="col">
+        <button type="button btn btn-secondary" (click)="askBroadcastToAddSelfie()">Add a selfie</button>
+    </div>
+</div>
+
+<app-add-selfie $ngIf="selfieToAdd" (cancelAdd)="hideZoneInputSelfie"></app-add-selfie>
+
 <app-a-selfie [aSelfie]="oneSelfie" *ngFor="let oneSelfie of selfies"></app-a-selfie>
