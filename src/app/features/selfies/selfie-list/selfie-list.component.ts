@@ -1,6 +1,7 @@
 import { Input, OnDestroy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+
 import { Selfie } from 'src/app/models/selfie';
 import { LoggerService } from 'src/app/shared/services/logger/logger.service';
 import { SelfieService } from 'src/app/shared/services/selfies/selfie.service';
@@ -48,6 +49,7 @@ export class SelfieListComponent implements OnInit, OnDestroy {
 
   askBroadcastToAddSelfie(): void {
     this.selfieToAdd = new Selfie;
+    this.selfieToAdd.title = 'test 01';
   }
 
   hideZoneInputSelfie(): void {

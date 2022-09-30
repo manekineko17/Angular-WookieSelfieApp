@@ -1,15 +1,26 @@
-<div class="row">
-    <div class="col">Titre</div>
-    <div class="col">
-        <input type="text" required>
-    </div>
-</div>
+{{ selfieToInform | json}}
 
-<div class="row">
-    <div class="col">
+<form #myForm="ngForm">
+    <div class="row">
+        <div class="col">Titre</div>
+        <div class="col">
+            <input type="text" #title="ngModel" name="title" [(ngModel)]="selfieToInform.title" required>
+            <!-- 1ère méthode pour cacher: appeller la propriété style CSS qui peut donc être liée (bind) -->
+            <span [style.visibility]="title.valid ? 'hidden' : 'visible'">Title required</span>
+            <!-- 2ème méthode: utiliser la propriété inclue dans angular pour cacher -->
+            <!-- <span [hidden]="title.valid">Title required</span> -->
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col">
+            <!-- disabled si form n'est pas valide -->
+            <button type="button" [disabled]="! myForm.form.valid" class="btn btn-primary" (click)="clickOnAdd">Add a
+                new
+                selfie</button>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-secondary" (click)="clickOnCancellingInput">Cancel</button>
+        </div>
     </div>
-    <div class="col">
-        <button type="button" class="btn btn-secondary" (click)="clickOnCancellingInput">Cancel</button>
-    </div>
-</div>
+</form>

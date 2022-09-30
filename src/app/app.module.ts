@@ -1,23 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { MenuGeneralComponent } from './shared/components/menu-general/menu-general.component';
+import { SelfieModule } from './features/selfies/selfie.module';
 import { SelfieListComponent } from './features/selfies/selfie-list/selfie-list.component';
-import { ASelfieComponent } from './features/selfies/a-selfie/a-selfie.component';
-import { HttpClientModule } from '@angular/common/http';
-import { AddSelfieComponent } from './features/selfies/add-selfie/add-selfie.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuGeneralComponent,
-    SelfieListComponent,
-    ASelfieComponent,
-    AddSelfieComponent
+    MenuGeneralComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    SelfieModule
   ],
   providers: [],
   bootstrap: [AppComponent]

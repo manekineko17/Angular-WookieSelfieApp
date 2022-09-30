@@ -4,6 +4,6 @@
     </div>
 </div>
 
-<app-add-selfie $ngIf="selfieToAdd" (cancelAdd)="hideZoneInputSelfie"></app-add-selfie>
+<app-add-selfie *ngIf="selfieToAdd" [selfieToInform]="selfieToAdd" (cancelAdd)="hideZoneInputSelfie"></app-add-selfie>
 
 <app-a-selfie [aSelfie]="oneSelfie" *ngFor="let oneSelfie of selfies"></app-a-selfie>

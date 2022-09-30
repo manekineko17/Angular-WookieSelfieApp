@@ -1,0 +1,11 @@
+/* couleur du champ input si formulaire valide*/
+input.ng-valid {
+    background-color: green;
+    color: white;
+}
+
+/* couleur du champ input si formulaire invalide*/
+input.ng-invalid {
+    background-color: darkred;
+    color: white;
+}

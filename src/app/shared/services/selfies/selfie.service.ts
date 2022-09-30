@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { interval, map, Observable, of } from 'rxjs';
+
 import { Selfie } from 'src/app/models/selfie';
 import { Wookie } from 'src/app/models/wookie';
 import { environment } from 'src/environments/environment';

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { Selfie } from 'src/app/models/selfie';
 
 @Component({
