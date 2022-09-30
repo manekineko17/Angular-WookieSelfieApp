@@ -5,8 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { MenuGeneralComponent } from './shared/components/menu-general/menu-general.component';
 import { SelfieModule } from './features/selfies/selfie.module';
-import { SelfieListComponent } from './features/selfies/selfie-list/selfie-list.component';
-
+import { SharedModule } from './shared/modules/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,8 @@ import { SelfieListComponent } from './features/selfies/selfie-list/selfie-list.
   imports: [
     BrowserModule,
     HttpClientModule,
-    SelfieModule
+    SelfieModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
