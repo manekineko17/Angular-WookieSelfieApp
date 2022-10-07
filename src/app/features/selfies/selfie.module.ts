@@ -3,18 +3,21 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/modules/shared/shared.module';
 
 import { SelfieListComponent } from './selfie-list/selfie-list.component';
-import { ASelfieComponent } from './a-selfie/a-selfie.component';
+import { ASelfieReadonlyComponent } from './a-selfie-readonly/a-selfie-readonly.component';
 import { AddSelfieComponent } from './add-selfie/add-selfie.component';
+import { SelfiesRoutingModule } from './selfies-routing.module';
 
 @NgModule({
   declarations: [SelfieListComponent,
-    ASelfieComponent,
+    ASelfieReadonlyComponent,
     AddSelfieComponent],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    SelfiesRoutingModule
   ], exports: [
-    SelfieListComponent
+    SelfieListComponent,
+    SelfiesRoutingModule
   ],
 })
 export class SelfieModule { }

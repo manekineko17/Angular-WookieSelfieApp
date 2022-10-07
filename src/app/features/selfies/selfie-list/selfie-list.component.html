@@ -6,4 +6,4 @@
 
 <app-add-selfie *ngIf="selfieToAdd" [selfieToInform]="selfieToAdd" (cancelAdd)="hideZoneInputSelfie"></app-add-selfie>
 
-<app-a-selfie [aSelfie]="oneSelfie" *ngFor="let oneSelfie of selfies"></app-a-selfie>
+<app-a-selfie-readonly [aSelfie]="oneSelfie" *ngFor="let oneSelfie of selfies"></app-a-selfie-readonly>
