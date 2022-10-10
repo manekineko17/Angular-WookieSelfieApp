@@ -24,4 +24,9 @@ export class ASelfieReadonlyComponent implements OnInit {
     this._router.navigate(['/battles/new']);
   }
 
+  clickToSee() {
+    this.aSelfie.id = 2;
+    this._router.navigate(['/selfies/see', 2]);
+  }
+
 }

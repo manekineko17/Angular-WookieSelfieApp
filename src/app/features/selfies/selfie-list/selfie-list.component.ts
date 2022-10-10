@@ -20,9 +20,9 @@ export class SelfieListComponent implements OnInit, OnDestroy {
   /*instancing a new wookie: the line under comes from JS syntax:
 * we wait for the same attributes for each wookie : */
   selfies: Selfie[] = [
-    { image: 'https://cdn.pixabay.com/photo/2019/09/14/00/23/chewbacca-4475120_1280.jpg', title: "selfie title", wookie: { name: 'Chewie 1', selfies: [] } },
-    { image: 'https://cdn.pixabay.com/photo/2019/09/14/00/23/chewbacca-4475120_1280.jpg', title: "selfie title", wookie: { name: 'Chewie 2', selfies: [] } },
-    { image: 'https://cdn.pixabay.com/photo/2019/09/14/00/23/chewbacca-4475120_1280.jpg', title: "selfie title", wookie: { name: 'Chewie 3', selfies: [] } }
+    { image: 'https://cdn.pixabay.com/photo/2019/09/14/00/23/chewbacca-4475120_1280.jpg', title: "selfie title", wookie: { name: 'Chewie 1', selfies: [] }, id: 1 },
+    { image: 'https://cdn.pixabay.com/photo/2019/09/14/00/23/chewbacca-4475120_1280.jpg', title: "selfie title", wookie: { name: 'Chewie 2', selfies: [] }, id: 2 },
+    { image: 'https://cdn.pixabay.com/photo/2019/09/14/00/23/chewbacca-4475120_1280.jpg', title: "selfie title", wookie: { name: 'Chewie 3', selfies: [] }, id: 3 }
   ];
 
   //déclation d'une propriété input

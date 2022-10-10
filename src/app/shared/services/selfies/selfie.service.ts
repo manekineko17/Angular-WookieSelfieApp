@@ -29,6 +29,7 @@ export class SelfieService {
     selfie.title = "My selfie";
     selfie.wookie = new Wookie();
     selfie.wookie.name = "Chewie";
+    selfie.id = 1;
 
     table.push(selfie); //ajout
 
@@ -39,11 +40,22 @@ export class SelfieService {
       wookie: {
         name: "Chewie",
         selfies: []
-      }
+      },
+      id: 1
     });
 
     return table;
   }
+
+  /**
+   * Retourne un seul selfie avec son wookie
+   * @param id 
+   * @returns 
+   */
+  getOne(id: number): Observable<Selfie> {
+    return this.httpClient.get<Selfie>(environment.apis.selfies.url + '/' + id);
+  }
+
 
   /** 
    * Retourne une observable pour s'inscrire à la réception des tableaux de wookies
